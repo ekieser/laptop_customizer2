@@ -40,7 +40,7 @@ updateFeature = (feature, newValue) => {
   });
 };
 
-render(); {
+render() {
   return (
     <div className="App">
      <Heading />
