@@ -30,30 +30,28 @@ class App extends Component {
       }
     }
   }    
+  updateFeature = (feature, newValue) => {
+    const selected = Object.assign({}, this.state.selected);
+    selected[feature] = newValue;
+    this.setState({
+      selected
+    });
+  }
+  render() {
+    return (
+      <div className="App">
+      <Heading />
+        <main>
+          <Content
+            features={this.props.features}
+            handleUpdate={(feature, newValue) => this.updateFeature(feature, newValue)}
+            selected={this.state.selected}
+          ></Content>
+          <Summary selected={this.state.selected}></Summary>
+        </main>
+      </div>
+    );
+  }  
 };
-
-updateFeature = (feature, newValue) => {
-  const selected = Object.assign({}, this.state.selected);
-  selected[feature] = newValue;
-  this.setState({
-    selected
-  });
-};
-
-render() {
-  return (
-    <div className="App">
-     <Heading />
-      <main>
-        <Content
-          features={this.props.features}
-          handleUpdate={(feature, newValue) => this.updateFeature(feature, newValue)}
-          selected={this.state.selected}
-        ></Content>
-        <Summary selected={this.state.selected}></Summary>
-      </main>
-    </div>
-  );
-}
 
 export default App;
