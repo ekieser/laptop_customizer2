@@ -3,7 +3,7 @@ import React from 'react';
 function Features(props) {
     const features = Object.keys(this.props.features)
     .map(key => {
-        const options = this.props.features[key]((item, index) => {
+        const options = this.props.features[key].map((item, index) => {
             const selectedClass = item.name === this.props.selected[key].name ? 'feature__selected' : '';
             const featureClass = 'feature__option' + selectedClass;
             return (
