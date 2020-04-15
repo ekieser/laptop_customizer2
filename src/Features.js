@@ -7,7 +7,7 @@ function Features(props) {
             const selectedClass = item.name === props.selected[key].name ? 'feature__selected' : '';
             const featureClass = 'feature__option' + ' ' + selectedClass;
             return (
-                <div className={featureClass}
+                <div className={featureClass}>
                     <input
                     type="radio" 
                     key={index} 
