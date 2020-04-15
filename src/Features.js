@@ -7,14 +7,17 @@ function Features(props) {
             const selectedClass = item.name === props.selected[key].name ? 'feature__selected' : '';
             const featureClass = 'feature__option' + ' ' + selectedClass;
             return (
-                <input type="radio" key={index} className="feature__item">
-                    <div className={featureClass}
-                        onClick={e => props.handleUpdate(key, item)}>
-                        { item.name }
-                        ({ new Intl.NumberFormat( 'en-US', {style: 'currency', currency: 'USD'})
-                        .format(item.cost)})
-                    </div>
-                </input>
+                <div className={featureClass}
+                    <input
+                    type="radio" 
+                    key={index} 
+                    className="feature__item"
+                    onClick={e => props.handleUpdate(key, item)}
+                    { item.name }
+                    ({ new Intl.NumberFormat( 'en-US', {style: 'currency', currency: 'USD'})
+                       .format(item.cost)})
+                    />
+                </div>
             )
         })
         return (
