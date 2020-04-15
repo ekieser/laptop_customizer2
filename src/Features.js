@@ -1,4 +1,11 @@
 import React from 'react';
+import slugify from 'slugify';
+
+const USCurrencyFormat = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+  });
+  
 
 function Features(props) {
     const features = Object.keys(props.features)
@@ -6,6 +13,7 @@ function Features(props) {
         const options = props.features[key].map((item, index) => {
             const selectedClass = item.name === props.selected[key].name ? 'feature__selected' : '';
             const featureClass = 'feature__option' + ' ' + selectedClass;
+            const itemHash = slugify(JSON.stringify(item));
             return (
                 <div className={featureClass}>
                     <input
@@ -13,10 +21,10 @@ function Features(props) {
                     key={index} 
                     className="feature__item"
                     onClick={e => props.handleUpdate(key, item)}
-                    { item.name }
-                    ({ new Intl.NumberFormat( 'en-US', {style: 'currency', currency: 'USD'})
-                       .format(item.cost)})
                     />
+                <label htmlFor={itemHash} className="feature__label">
+                {item.name} ({USCurrencyFormat.format(item.cost)})
+                </label>
                 </div>
             )
         })
