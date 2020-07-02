@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import Content from './Content';
-import Features from './Features';
 import Heading from './Heading';
 import Summary from './Summary';
-import slugify from 'slugify';
 import './App.css';
 
 class App extends Component {
