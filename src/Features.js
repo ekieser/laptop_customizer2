@@ -6,18 +6,17 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
     currency: 'USD'
   });
   
-
 function Features(props) {
     const features = Object.keys(props.features)
     .map(key => {
         const options = props.features[key].map((item, index) => {
             const selectedClass = item.name === props.selected[key].name ? 'feature__selected' : '';
-            const featureClass = 'feature__option' + ' ' + selectedClass;
+            const featureClass = selectedClass;
             const itemHash = slugify(JSON.stringify(item));
             return (
                 <div className={featureClass}>
                     <input
-                    type="radio" 
+                    type="radio"
                     key={index} 
                     className="feature__item"
                     onClick={e => props.handleUpdate(key, item)}
